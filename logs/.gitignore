@@ -1,0 +1,3 @@
+# prevent accidental commit
+*
+!.gitignore
