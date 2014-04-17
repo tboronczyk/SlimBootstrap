@@ -8,13 +8,13 @@ $c = new Pimple();
 
 $c['config'] = require dirname(__FILE__) . '/../config/config.php';
 
-$c['app'] = $c->share(function ($c) {
+$c['app'] = function ($c) {
     $app = new Slim(array(
         'view' => new Twig(),
         'templates.path' => $c['config']['path.templates']
     ));
     return $app;
-});
+};
 
 $c['db.pdo'] = function ($c) {
     $config = $c['config'];
